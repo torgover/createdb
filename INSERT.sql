@@ -28,7 +28,7 @@ VALUES
 	(4, 'album4', 2005),
 	(5, 'album5', 2003),
 	(6, 'album6', 1988),
-	(7, 'album7', 2015),
+	(7, 'album7', 2018),
 	(8, 'album8', 2008)
 ;
 
@@ -59,5 +59,6 @@ VALUES
 	(2, 'collection2', 2001),
 	(3, 'collection3', 2002),
 	(4, 'collection4', 2003),
-	(5, 'collection5', 2004)
+	(5, 'collection5', 2004),
+	(6, 'collection6', 2019)
 ;
