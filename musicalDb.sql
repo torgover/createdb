@@ -1,59 +1,58 @@
 CREATE TABLE IF NOT EXISTS Genre (
-	id SERIAL PRIMARY KEY,
-	name varchar(55) NOT NULL
+	id_genre SERIAL PRIMARY KEY,
+	genre_name varchar(55) NOT NULL
 );
 
 
 CREATE TABLE IF NOT EXISTS Singer (
-	id SERIAL PRIMARY KEY,
-	name varchar(55) NOT NULL
+	id_singer SERIAL PRIMARY KEY,
+	singer_name varchar(55) NOT NULL
 );
 
 
 
 CREATE TABLE IF NOT EXISTS GenreSinger (
-	Genre_id int REFERENCES Genre (id),
-	Singer_id int REFERENCES Singer (id),
-	CONSTRAINT pk_GenreSinger PRIMARY KEY (Genre_id, Singer_id)
+	id_genre int REFERENCES Genre (id_genre),
+	id_singer int REFERENCES Singer (id_singer),
+	CONSTRAINT pk_GenreSinger PRIMARY KEY (id_genre, id_singer)
 );
 
 
 
 CREATE TABLE IF NOT EXISTS Album (
-	id SERIAL PRIMARY KEY,
-	name varchar(55) NOT NULL,
-	year int NOT NULL
+	id_album SERIAL PRIMARY KEY,
+	album_name varchar(55) NOT NULL,
+	album_year int NOT NULL
 );
 
 
 
 CREATE TABLE IF NOT EXISTS AlbumSinger (
-	Album_id int REFERENCES Album (id),
-	Singer_id int REFERENCES Singer (id),
-	CONSTRAINT pk_AlbumSinger PRIMARY KEY (Album_id, Singer_id)
+	id_album int REFERENCES Album (id_album),
+	id_singer int REFERENCES Singer (id_singer),
+	CONSTRAINT pk_AlbumSinger PRIMARY KEY (id_album, id_singer)
 );
 
 
 CREATE TABLE IF NOT EXISTS Track (
-	id SERIAL PRIMARY KEY,
-	name varchar(55) NOT NULL,
-	duration int NOT NULL,
-	Album_id int REFERENCES Album (id)
+	id_track SERIAL PRIMARY KEY,
+	track_name varchar(55) NOT NULL,
+	track_duration int NOT NULL,
+	id_album int REFERENCES Album (id_album)
 );
 
 
 
 CREATE TABLE IF NOT EXISTS Collection (
-	id SERIAL PRIMARY KEY,
-	name varchar(55) NOT NULL,
-	year int NOT NULL
+	id_collection SERIAL PRIMARY KEY,
+	collection_name varchar(55) NOT NULL,
+	collection_year int NOT NULL
 );
 
 
 
 CREATE TABLE IF NOT EXISTS TrackCollection (
-	Track_id int REFERENCES Track (id),
-	Collection_id int REFERENCES Collection (id),
-	CONSTRAINT pk_TrackCollection PRIMARY KEY (Track_id, Collection_id)
+	id_track int REFERENCES Track (id_track),
+	id_collection int REFERENCES Collection (id_collection),
+	CONSTRAINT pk_TrackCollection PRIMARY KEY (id_track, id_collection)
 );
-
